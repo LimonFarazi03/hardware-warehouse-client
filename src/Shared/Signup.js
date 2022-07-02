@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import googleLogo from '../assets/Images/googleLogo.png';
-import { useSignInWithEmailAndPassword,useCreateUserWithEmailAndPassword,useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword,useCreateUserWithEmailAndPassword,useUpdateProfile,useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { toast } from 'react-toastify';
 
 const Signup = () => {
-  // signin with email
+  // signing with email
   const [
     signInWithEmailAndPassword,
     user,
@@ -18,38 +18,43 @@ const Signup = () => {
     createUserWithEmailAndPassword,
     createUser,
     createUoading,
-    createRrror,
+    createError,
   ] = useCreateUserWithEmailAndPassword(auth);
   // Update Profile
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  // Sign in with Google 
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   const onSubmit = async(data) => {
     console.log(data)
-    await signInWithEmailAndPassword(data.email,data.password)
+    await createUserWithEmailAndPassword(data.email,data.password)
     await updateProfile({displayName: data.name})
     toast.success('Account Created Successfully');
   };
-
+  let allError;
+  if(error || createError ||updateError || gerror){
+    allError = <p className='text-red-500 text-center mt-4 text-sm'>⚠️ <small>{error?.message || createError?.message || updateError?.message || gerror?.message}</small></p>
+  };
   return (
-    <div class="flex justify-center items-center h-screen">
-      <div class="card w-96 bg-base-100 shadow-xl">
-  <div class="card-body">
-    <h2 class="text-center text-2xl uppercase font-bold mb-2">Signup</h2>
-    <form  onSubmit={handleSubmit(onSubmit)} class="grid grid-cols-1">
+    <div className="flex justify-center items-center h-screen">
+      <div className="card w-96 bg-base-100 shadow-xl">
+  <div className="card-body">
+    <h2 className="text-center text-2xl uppercase font-bold mb-2">Signup</h2>
+    <form  onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1">
 
     {/* Name Input */}
-        <div class="form-control w-full max-w-xs">
-          <label class="label">
-          <span class="label-text">Name</span>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+          <span className="label-text">Name</span>
           </label>
           <input {...register("name", {
                 required : {
                   value: true,
                   message: '⚠️ Name is required' // JS only: <p>error message</p> TS only support string
                 }
-            })} type="text" placeholder="Email" class="input input-bordered w-full max-w-xs" />
-          <label class="label">
+            })} type="text" placeholder="Email" className="input input-bordered w-full max-w-xs" />
+          <label className="label">
             {/* Error msg  */}
             { errors.name?.type === 'required' && <span className="label-text-alt text-red-500">
                     {errors.name.message}
@@ -58,9 +63,9 @@ const Signup = () => {
           </label>
         </div>
     {/* Email Input */}
-        <div class="form-control w-full max-w-xs">
-          <label class="label">
-          <span class="label-text">Email</span>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+          <span className="label-text">Email</span>
           </label>
           <input {...register("email", {
                 required : {
@@ -72,8 +77,8 @@ const Signup = () => {
                     message: "⚠️ provide a valid email",
                   }
 
-            })} type="email" placeholder="Email" class="input input-bordered w-full max-w-xs" />
-          <label class="label">
+            })} type="email" placeholder="Email" className="input input-bordered w-full max-w-xs" />
+          <label className="label">
             {/* Error msg  */}
             { errors.email?.type === 'required' && <span className="label-text-alt text-red-500">
                     {errors.email.message}
@@ -87,9 +92,9 @@ const Signup = () => {
           </label>
         </div>
     {/* Password Input */}
-        <div class="form-control w-full max-w-xs">
-          <label class="label">
-          <span class="label-text">Password</span>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+          <span className="label-text">Password</span>
           </label>
           <input {...register("password", {
                 required: {
@@ -104,8 +109,8 @@ const Signup = () => {
                     value: /(?=.*[!#$%&?^*@~() "])(?=.{8,})/,
                     message: "⚠️ your password must be strong improve now",
                   },
-            })} type="password" placeholder="Password" class="input input-bordered w-full max-w-xs" />
-          <label class="label">
+            })} type="password" placeholder="Password" className="input input-bordered w-full max-w-xs" />
+          <label className="label">
             {/* Error msg  */}
             { errors.password?.type === 'required' && <span className="label-text-alt text-red-500">
                     {errors.password.message}
@@ -120,11 +125,13 @@ const Signup = () => {
                   </span>
             }
           </label>
+          {allError}
         </div>
         {/* Login button */}
-      <input type="submit" value="login" class="btn mt-4" />
+      <input type="submit" value="login" className="btn mt-4" />
         <div className="divider">OR</div>
-        <div className='flex items-center justify-center btn btn-outline'>
+        {/* Google btn */}
+        <div onClick={()=>signInWithGoogle()} className='flex items-center justify-center btn btn-outline'>
           <img width={'46px'} src={googleLogo} alt="" />
           <p>Connect With Google</p>
         </div>
