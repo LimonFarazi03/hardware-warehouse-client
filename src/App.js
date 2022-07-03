@@ -7,7 +7,12 @@ import Home from './Home/Home';
 import Login from './Shared/Login';
 import Signup from './Shared/Signup';
 import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Pages/Dashboard';
+import AddReview from './Pages/AddReview';
+import MyOrders from './Pages/MyOrders';
+import MyProfile from './Pages/MyProfile';
+import Purchase from './Shared/Purchase';
 
 function App() {
   return (
@@ -18,6 +23,12 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="purchase" element={<Purchase />} />
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route path="addReviews" element={<AddReview />} />
+            <Route path="myOrders" element={<MyOrders />} />
+            <Route path="myProfile" element={<MyProfile />} />
+          </Route>
         </Routes>
       <Footer />
       <ToastContainer/>

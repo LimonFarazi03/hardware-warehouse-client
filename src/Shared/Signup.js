@@ -4,6 +4,7 @@ import googleLogo from '../assets/Images/googleLogo.png';
 import { useSignInWithEmailAndPassword,useCreateUserWithEmailAndPassword,useUpdateProfile,useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   // signing with email
@@ -125,6 +126,7 @@ const Signup = () => {
                   </span>
             }
           </label>
+          <p className='mb-2'>Already have an account <Link to='/login' className='underline text-primary'>Login</Link></p>
           {allError}
         </div>
         {/* Login button */}
@@ -134,6 +136,10 @@ const Signup = () => {
         <div onClick={()=>signInWithGoogle()} className='flex items-center justify-center btn btn-outline'>
           <img width={'46px'} src={googleLogo} alt="" />
           <p>Connect With Google</p>
+        </div>
+        <div onClick={()=>signInWithGoogle()} className='mt-3 flex items-center justify-center btn btn-outline'>
+          <img width={'46px'} src={googleLogo} alt="" />
+          <p>Connect With Github</p>
         </div>
     </form>
   </div>

@@ -25,6 +25,7 @@ const Navbar = () => {
   <div className="flex-none">
     <ul className="menu menu-horizontal p-0">
       <li><Link to="##">Blogs</Link></li>
+      <li><Link to="dashboard">Dashboard</Link></li>
       {user ? <button onClick={logout} className="btn btn-ghost"><p>LogOut</p></button>:<li><Link  className="btn btn-ghost" to="/login">Login</Link></li>}
     </ul>
   </div>
