@@ -1,12 +1,18 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import googleLogo from '../assets/Images/googleLogo.png';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  const [haveuser, haveloading, haveerror] = useAuthState(auth);
+
+  let from = location.state?.from?.pathname || "/";
   // signin with email
   const [
     signInWithEmailAndPassword,
@@ -21,6 +27,9 @@ const Login = () => {
   const onSubmit = data => {
     signInWithEmailAndPassword(data.email,data.password);
   };
+  if(user || guser|| haveuser){
+    navigate(from, { replace: true });
+  }
   let allError;
   if(error || gerror){
     allError = <p className='text-red-500 text-center my-2 text-sm'>⚠️ <small>{error?.message || gerror?.message}</small></p>

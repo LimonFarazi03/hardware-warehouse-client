@@ -14,6 +14,9 @@ import MyOrders from './Pages/MyOrders';
 import MyProfile from './Pages/MyProfile';
 import Purchase from './Shared/Purchase';
 import OrderNow from './Shared/OrderNow';
+import RequireAuth from './Shared/RequireAuth';
+import NotFound from './Shared/NotFound';
+import Blogs from './Pages/Blogs';
 
 function App() {
   return (
@@ -21,16 +24,22 @@ function App() {
     <Navbar/>
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile" element={
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+          } />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="purchase" element={<Purchase />} />
-          <Route path="dashboard" element={<Dashboard />}>
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="purchase" element={<RequireAuth><Purchase /></RequireAuth>} />
+          <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
             <Route path="addReviews" element={<AddReview />} />
             <Route path="myOrders" element={<MyOrders />} />
             <Route path="myOrders/:id" element={<OrderNow />} />
             <Route path="myProfile" element={<MyProfile />} />
           </Route>
+          <Route path="*" element={<NotFound/>} />
         </Routes>
       <Footer />
       <ToastContainer/>
