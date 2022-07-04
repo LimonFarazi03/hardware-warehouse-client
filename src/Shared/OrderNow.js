@@ -14,7 +14,7 @@ const OrderNow = (event) => {
   const {id} = useParams();
   const url = `http://localhost:5000/services/${id}`
   
-  const { isLoading, error, data:service } = useQuery('orderNow', () =>
+  const { isLoading, error, data:service,refetch } = useQuery('orderNow', () =>
      fetch(url).then(res =>
        res.json()
      )
@@ -51,6 +51,7 @@ const OrderNow = (event) => {
         if(data){
           toast.success('successfully Order placed');
           event.target.reset();
+          refetch()
         }else{
           toast.warn('something wrong')
         }
