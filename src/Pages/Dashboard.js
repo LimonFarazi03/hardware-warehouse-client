@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
-    <div class="my-5 px-4">
+    <div class="my-10 px-4">
       <div class="drawer drawer-mobile">
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content">
