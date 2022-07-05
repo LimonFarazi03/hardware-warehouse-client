@@ -3,7 +3,7 @@ import notFound from '../assets/Images/notFound.gif';
 
 const NotFound = () => {
   return (
-    <div class="flex h-screen justify-center items-center">
+    <div className="flex h-screen justify-center items-center">
       <img src={notFound} alt="Notfound"/>
     </div>
   );

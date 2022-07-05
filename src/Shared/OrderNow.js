@@ -64,49 +64,49 @@ const OrderNow = (event) => {
   return (
     <div className="h-screen flex justify-center items-center my-28">
       <form onSubmit={handleBooking}>
-      <div class="card w-96 bg-base-100 shadow-xl"> 
+      <div className="card w-96 bg-base-100 shadow-xl"> 
   <div>
     <div className="mt-2 flex justify-center">
       <img src={service.image} alt="image"/>
     </div>
   </div>
-    <div class="card-body">
+    <div className="card-body">
     <h2 className="text-center text-2xl uppercase">You are Ordering for <span className="font-bold text-primary">{service.name}</span></h2>
     {/* Name */}
-    <div class="form-control w-full max-w-xs">
-  <label class="label">
-    <span class="label-text">Name</span>
+    <div className="form-control w-full max-w-xs">
+  <label className="label">
+    <span className="label-text">Name</span>
   </label>
-  <input name="name" disabled type="text" value={user?.displayName} class="input input-bordered w-full max-w-xs" />
-  <label class="label">
-    <span class="label-text-alt">Alt label</span>
+  <input name="name" disabled type="text" value={user?.displayName} className="input input-bordered w-full max-w-xs" />
+  <label className="label">
+    <span className="label-text-alt">Alt label</span>
   </label>
 </div>
 {/* Email */}
-<div class="form-control w-full max-w-xs">
-  <label class="label">
-    <span class="label-text">Email</span>
+<div className="form-control w-full max-w-xs">
+  <label className="label">
+    <span className="label-text">Email</span>
   </label>
-  <input name="email" disabled type="email" value={user?.email} class="input input-bordered w-full max-w-xs" />
+  <input name="email" disabled type="email" value={user?.email} className="input input-bordered w-full max-w-xs" />
 </div>
 {/* Product Name */}
-<div class="form-control w-full max-w-xs">
-  <label class="label">
-    <span class="label-text">Product Name</span>
+<div className="form-control w-full max-w-xs">
+  <label className="label">
+    <span className="label-text">Product Name</span>
   </label>
-  <input name="productName" disabled type="text" value={service.name} class="input input-bordered w-full max-w-xs" />
+  <input name="productName" disabled type="text" value={service.name} className="input input-bordered w-full max-w-xs" />
 </div>
 {/* Quantity */}
-<div class="form-control w-full max-w-xs">
-  <label class="label">
-    <span class="label-text">Quantity</span>
+<div className="form-control w-full max-w-xs">
+  <label className="label">
+    <span className="label-text">Quantity</span>
   </label>
-  <input required name="quantity" type="number" placeholder="How much you want to order" class="input input-bordered w-full max-w-xs" />
+  <input required name="quantity" type="number" placeholder="How much you want to order" className="input input-bordered w-full max-w-xs" />
 </div>
 {/* textarea  */}
 <textarea required name="address" className="bg-gray-100 p-1 mt-2 rounded" placeholder="Address.." cols="20" rows="4"></textarea>
 {/* Button */}
-  <input class="btn btn-success mt-2" type="submit" value="Place Order" />
+  <input className="btn btn-success mt-2" type="submit" value="Place Order" />
   </div>
 </div>
       </form>

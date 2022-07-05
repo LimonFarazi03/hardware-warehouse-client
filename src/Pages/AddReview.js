@@ -13,8 +13,10 @@ const AddReview = () => {
     const review = event.target.review.value;
     const star = event.target.star.value;
 
-    if(star > 5){
-      return toast.warn('Give review under 1 to 5')
+    if(star < 1){
+      return toast.warn('Give review minimum 1');
+    }else if(star > 5){
+      return toast.warn('Give review under 1 to 5');
     };
     const reviewNow = {
       user: user.displayName,
@@ -31,12 +33,13 @@ const AddReview = () => {
         })
     .then((response) => response.json())
     .then((data) => {
-      if(data){
-        console.log(data)
+      console.log(data)
+      if(data.success){
+        // console.log(data)
         toast.success('Thank you for your valuable review')
         event.target.reset();
       }else{
-        toast.warn("Something Wrong")
+        toast.warn("You Have already have a review 1 person can review 1 time")
       }
     });
   }
@@ -50,21 +53,21 @@ const AddReview = () => {
     <div className="flex justify-center items-center h-screen">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <div class="flex items-center my-3">
-          <div class="avatar mr-2">
-            <div class="w-12 rounded-full mr-2">
+          <div className="flex items-center my-3">
+          <div className="avatar mr-2">
+            <div className="w-12 rounded-full mr-2">
               <img src="https://placeimg.com/192/192/people" />
             </div>
           </div>
           <div>
-          <h2 class="text-xl font-bold">{user?.displayName}</h2>
-            <p class="text-gray-400">Add Rate & review</p>
+          <h2 className="text-xl font-bold">{user?.displayName}</h2>
+            <p className="text-gray-400">Add Rate & review</p>
           </div>
           </div>
           <form onSubmit={postReview} className="grid grid-cols-1">
             <textarea required name="review" className="bg-gray-100 p-1 mt-4 rounded" placeholder="your say.." cols="25" rows="5"></textarea>
-            <input name="star" required type="number" placeholder="your point under 5 Star" class="mt-2 input input-bordered w-full max-w-xs" />
-            <input class="btn btn-success mt-4" type="submit" value="Post Review" />
+            <input name="star" required type="number" placeholder="your point under 5 Star" className="mt-2 input input-bordered w-full max-w-xs" />
+            <input className="btn btn-success mt-4" type="submit" value="Post Review" />
           </form>
         </div>
       </div>

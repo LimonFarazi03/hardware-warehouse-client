@@ -24,8 +24,8 @@ const MyOrders = () => {
     <div>
     <h2 className="text-2xl text-center mt-2 mb-5 font-bold">My Orders: {services.length}</h2>
       <div className="px-3">
-      <div class="overflow-x-auto">
-  <table class="table w-full">
+      <div className="overflow-x-auto">
+  <table className="table w-full">
     <thead>
       <tr>
         <th></th>
@@ -38,11 +38,11 @@ const MyOrders = () => {
     </thead>
     <tbody>
       {
-        services.map((service,index) => <tr class="hover">
+        services.map((service,index) => <tr className="hover">
         <th>{index+1}</th>
         <td>{user?.displayName}</td>
         <td>{service.productName}</td>
-        <td class="font-bold">{service.quantity}</td>
+        <td className="font-bold">{service.quantity}</td>
         <td>{service.address}</td>
         <td><button className="btn btn-sm btn-success">Pay now</button></td>
       </tr>)
