@@ -22,7 +22,7 @@ const MyProfile = () => {
       address,
     };
 
-    fetch(`http://localhost:5000/user/${user._id}`, {
+    fetch(`http://localhost:5000/user/${user.email}`, {
       method: "PUT",
       body: JSON.stringify(updateDocument),
       headers: {
@@ -33,6 +33,7 @@ const MyProfile = () => {
       .then((data) => {
         if(data.success){
           toast.success("Update Successfully")
+          event.target.reset();
         }else{
           toast.success("Something Wrong")
         }
