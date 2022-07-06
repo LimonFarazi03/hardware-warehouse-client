@@ -116,10 +116,6 @@ const Login = () => {
           <img width={'46px'} src={googleLogo} alt="" />
           <p>Connect With Google</p>
         </div>
-        <div onClick={()=>signInWithGoogle()} className='mt-3 flex items-center justify-center btn btn-outline'>
-          <img width={'46px'} src={googleLogo} alt="" />
-          <p>Connect With Google</p>
-        </div>
     </form>
   </div>
 </div>

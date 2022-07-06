@@ -7,8 +7,8 @@ import { VscFeedback } from 'react-icons/vsc';
 const BusinessSum = () => {
   return (
     <div className='my-28'>
-      <h1 className="text-center text-4xl font-bold uppercase text-primary">Millions Business Trust Us</h1>
-      <h1 className="text-center text-xl font-bold uppercase text-secondary mt-2 mb-8">Try to Understand user experience</h1>
+      <h1 className="text-center text-4xl font-bold uppercase text-green-400">Millions Business Trust Us</h1>
+      <h1 className="text-center text-xl font-bold uppercase text-primary mt-2 mb-8">Try to Understand user experience</h1>
       <div>
       <div className="hero h-[75vh]" style={{backgroundImage:`url(${mapImage})`,backgroundSize: 'cover'}}>
   <div className="hero-overlay bg-opacity-5"></div>

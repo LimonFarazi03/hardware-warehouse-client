@@ -40,7 +40,7 @@ const Signup = () => {
     toast.success("Account Created Successfully");
 
     // Post User
-    fetch("http://localhost:5000/users", {
+    fetch("https://safe-savannah-43531.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -193,13 +193,6 @@ const Signup = () => {
             >
               <img width={"46px"} src={googleLogo} alt="" />
               <p>Connect With Google</p>
-            </div>
-            <div
-              onClick={() => signInWithGoogle()}
-              className="mt-3 flex items-center justify-center btn btn-outline"
-            >
-              <img width={"46px"} src={googleLogo} alt="" />
-              <p>Connect With Github</p>
             </div>
           </form>
         </div>

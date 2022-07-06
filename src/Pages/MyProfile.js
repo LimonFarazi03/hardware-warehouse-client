@@ -22,7 +22,7 @@ const MyProfile = () => {
       address,
     };
 
-    fetch(`http://localhost:5000/user/${user.email}`, {
+    fetch(`https://safe-savannah-43531.herokuapp.com/user/${user.email}`, {
       method: "PUT",
       body: JSON.stringify(updateDocument),
       headers: {

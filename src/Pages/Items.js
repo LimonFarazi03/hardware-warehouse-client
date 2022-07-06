@@ -8,7 +8,7 @@ const Items = () => {
     error,
     data: services,
   } = useQuery("services", () =>
-    fetch("http://localhost:5000/services").then((res) => res.json())
+    fetch("https://safe-savannah-43531.herokuapp.com/services").then((res) => res.json())
   );
   if (isLoading) {
     return (

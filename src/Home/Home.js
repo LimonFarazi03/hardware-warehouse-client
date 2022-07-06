@@ -3,6 +3,7 @@ import image from '../assets/Images/tools.jpg'
 import BusinessSum from '../Pages/BusinessSum';
 import Items from '../Pages/Items';
 import Reviews from '../Pages/Reviews';
+import Support from '../Pages/Support';
 import Banner from './Banner';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner />
       <Items />
       <BusinessSum />
+      <Support />
       <Reviews />
     </div>
   );

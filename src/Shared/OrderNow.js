@@ -12,7 +12,7 @@ const OrderNow = (event) => {
 
   const [user, loading, haveError] = useAuthState(auth);
   const {id} = useParams();
-  const url = `http://localhost:5000/services/${id}`
+  const url = `https://safe-savannah-43531.herokuapp.com/services/${id}`
   
   const { isLoading, error, data:service,refetch } = useQuery('orderNow', () =>
      fetch(url).then(res =>
@@ -39,7 +39,7 @@ const OrderNow = (event) => {
         quantity,
         address
       }
-      const url = 'http://localhost:5000/booking'
+      const url = 'https://safe-savannah-43531.herokuapp.com/booking'
       fetch(url,{
         method:'POST',
         body: JSON.stringify(booking),

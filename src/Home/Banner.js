@@ -6,10 +6,10 @@ const Banner = () => {
     <div className="hero h-[75vh]" style={{backgroundImage:`url(${bannerImage})`,backgroundSize: 'cover'}}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
-    <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-bold text-primary">Hello there</h1>
-      <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button className="btn btn-primary">Get Started</button>
+    <div className="max-w-lg">
+      <h1 className="mb-5 text-5xl font-bold text-primary">Search Tools.</h1>
+      <input type="text" placeholder="Search" class="input rounded-lg input-bordered w-full max-w-xs" />
+      <button className="mt-4 btn btn-success">Search</button>
     </div>
   </div>
 </div>

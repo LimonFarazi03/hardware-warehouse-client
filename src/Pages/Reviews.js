@@ -8,7 +8,7 @@ const Reviews = () => {
     data: reviews,
     refetch,
   } = useQuery("reviews", () =>
-    fetch("http://localhost:5000/review").then(
+    fetch("https://safe-savannah-43531.herokuapp.com/review").then(
       (res) => res.json()
     )
   );
@@ -25,7 +25,7 @@ const Reviews = () => {
   return (
     <div className="mb-28">
       <h1 className="text-center mb-5 font-bold text-4xl">Reviews</h1>
-      <div className="mt-3 grid grid-cols-1 lg:grid-cols-3 px-4 gap-3">
+      <div className="mt-3 grid grid-cols-1 lg:grid-cols-4 px-4 gap-3">
         {reviews.map((review) => (
           <div className="card lg:max-w-lg bg-base-200">
             <div className="card-body">

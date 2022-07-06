@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const MyOrders = () => {
   const [user, loading, haveError] = useAuthState(auth);
 
-  const url = `http://localhost:5000/myOrders?email=${user.email}`;
+  const url = `https://safe-savannah-43531.herokuapp.com/myOrders?email=${user.email}`;
   const {
     isLoading,
     error,
@@ -26,7 +26,7 @@ const MyOrders = () => {
   const handleDelete = (id) => {
     const confirm = window.confirm("Are you sure");
     if (confirm) {
-      fetch(`http://localhost:5000/booking/${id}`, {
+      fetch(`https://safe-savannah-43531.herokuapp.com/booking/${id}`, {
         method: "DELETE",
       })
         .then((response) => response.json())

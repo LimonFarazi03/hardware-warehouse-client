@@ -6,7 +6,7 @@ import auth from "../firebase.init";
 
 const AddReview = () => {
   const [user, loading, haveError] = useAuthState(auth);
-  const url = `http://localhost:5000/review`
+  const url = `https://safe-savannah-43531.herokuapp.com/review`
 
   const postReview = (event) =>{
     event.preventDefault()
