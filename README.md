@@ -13,6 +13,6 @@ In this project i will use many technology like JavaScript, ReactJs, Firebase,No
  - React query etc
 
 
-Open Live link [https://assainment11.web.app/](https://assainment11.web.app/) to view it in your browser.
+Open Live link [https://assaintment-12.web.app/](https://assaintment-12.web.app/) to view it in your browser.
 
 Open ServerSite link [https://safe-savannah-43531.herokuapp.com/](https://safe-savannah-43531.herokuapp.com/) to view it in your browser.
