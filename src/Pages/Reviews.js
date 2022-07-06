@@ -24,23 +24,24 @@ const Reviews = () => {
   }
   return (
     <div className="mb-28">
-      <h1 className="text-center mb-4 font-bold text-4xl">Reviews</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 px-4 gap-3">
+      <h1 className="text-center mb-5 font-bold text-4xl">Reviews</h1>
+      <div className="mt-3 grid grid-cols-1 lg:grid-cols-3 px-4 gap-3">
         {reviews.map((review) => (
-          <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+          <div className="card lg:max-w-lg bg-base-200">
             <div className="card-body">
               <div className="avatar flex justify-center">
                 <div className="w-24 rounded-full">
                   <img src="https://placeimg.com/192/192/people" />
                 </div>
               </div>
-              <h2 className="text-xl font-bold text-center">Limon Farazi</h2>
+              <h2 className="text-xl mb-0 font-bold text-center">{review.user}</h2>
+              <h2 className="text-sm mt-0 italic text-center"><small>{review.email}</small></h2>
               <p className="text-center">
                 Ratting:{" "}
-                <span className="font-bold text-orange-500">5 out of 5</span>
+                <span><span className="font-bold text-orange-500">{review.star}</span> out of 5</span>
               </p>
-              <p className="text-gray-400">
-                If a dog chews shoes whose shoes does he choose?
+              <p className="mt-2 text-gray-400 text-center">
+                {review.review.slice(0,200)}
               </p>
             </div>
           </div>

@@ -39,7 +39,7 @@ const AddReview = () => {
         toast.success('Thank you for your valuable review')
         event.target.reset();
       }else{
-        toast.warn("You Have already have a review 1 person can review 1 time")
+        toast.error("You have already a review 1 person can review 1 time")
       }
     });
   }

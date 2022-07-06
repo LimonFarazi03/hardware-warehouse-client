@@ -26,8 +26,9 @@ const OrderNow = (event) => {
       const productName = event.target.productName.value;
       const quantity = event.target.quantity.value;
       const address = event.target.address.value;
-
-      if(quantity > service.available){
+      if(quantity < 85){
+        return toast.warn("MiniMum Order 85 Pic's")
+      }else if(quantity > service.available){
         return toast.warn(`We dose not accept more then ${service.available}`)
       };
       const booking = {
@@ -102,6 +103,9 @@ const OrderNow = (event) => {
     <span className="label-text">Quantity</span>
   </label>
   <input required name="quantity" type="number" placeholder="How much you want to order" className="input input-bordered w-full max-w-xs" />
+  <label className="label">
+    <span className="label-text text-red-500">* Minimum Order 85 pic's or above</span>
+  </label>
 </div>
 {/* textarea  */}
 <textarea required name="address" className="bg-gray-100 p-1 mt-2 rounded" placeholder="Address.." cols="20" rows="4"></textarea>
